@@ -4,7 +4,7 @@ const User = require('../models/user');
 const express = require('express');
 const router = new express.Router();
 const ExpressError = require('../helpers/expressError');
-const { authUser, requireLogin, requireAdmin } = require('../middleware/auth');
+const { authUser, requireLogin, requireAdmin, authUserOrAdmin } = require('../middleware/auth');
 
 /** GET /
  *
@@ -62,8 +62,8 @@ router.get('/:username', authUser, requireLogin, async function(
  * other fields (including non-existent ones), an error should be raised.
  *
  */
-
-router.patch('/:username', authUser, requireLogin, requireAdmin, async function(
+// BUG #6 fix
+router.patch('/:username', requireLogin, authUser, async function(
   req,
   res,
   next
