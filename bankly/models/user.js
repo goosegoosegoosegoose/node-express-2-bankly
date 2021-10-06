@@ -79,7 +79,8 @@ class User {
    *
    * */
 
-  static async getAll(username, password) {
+  // Is this a bug? (getAll(username, password))
+  static async getAll() {
     const result = await db.query(
       `SELECT username,
                 first_name,
@@ -163,6 +164,7 @@ class User {
     }
 
     return true;
+    // bug?
   }
 }
 

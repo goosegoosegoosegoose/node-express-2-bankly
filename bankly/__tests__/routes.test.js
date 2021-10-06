@@ -117,6 +117,7 @@ describe("GET /users/[username]", function() {
     const response = await request(app)
       .get("/users/u1")
       .send({ _token: tokens.u1 });
+      console.log(tokens)
     expect(response.statusCode).toBe(200);
     expect(response.body.user).toEqual({
       username: "u1",
