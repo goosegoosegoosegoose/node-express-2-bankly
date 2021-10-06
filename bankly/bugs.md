@@ -5,3 +5,5 @@
 - BUG #3(?): not sure why getAll() method has username and password params
 - BUG #4: there are two module.exports = app
 - BUG #5: in auth/login route, User.authenticate wasn't preceded by an await.
+
+- This app doesn't use jsonschema, does that count as a bug? no? sad.
